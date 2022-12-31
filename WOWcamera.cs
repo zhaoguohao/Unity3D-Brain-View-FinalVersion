@@ -3,7 +3,8 @@ using UnityEngine.Serialization;
 
 /// 
 /// 将此脚本附加到任意镜头上，可以使其拥有WOW镜头的控制方式
-/// 
+///
+[DisallowMultipleComponent]
 public class WoWCamera : MonoBehaviour
 {
     /// 
@@ -50,12 +51,12 @@ public class WoWCamera : MonoBehaviour
         scrollFactor = 10.0f;
     }
 
-    void Start()
+    private void Start()
     {
         _mCameraTransform = transform;
     }
 
-    void Update()
+    private void Update()
     {
         //滚轮向前：拉近距离；滚轮向后：拉远距离 scrolling of the middle mouse
         var scrollAmount = Input.GetAxis("Mouse ScrollWheel");
